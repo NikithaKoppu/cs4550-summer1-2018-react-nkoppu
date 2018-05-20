@@ -8,7 +8,7 @@ class CourseRow extends React.Component {
         return (
             <tr>
                 <td>{this.props.course.title}</td>
-                <td><button
+                <td><button className="btn btn-danger"
                     onClick={() =>
                     {this.props.delete(this.props.course.id)}}>
                     Delete
