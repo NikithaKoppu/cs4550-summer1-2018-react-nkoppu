@@ -1,5 +1,4 @@
 import React from 'react'
-import Message from '../components/Message'
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
 import HelloWorld from "../hello";
 

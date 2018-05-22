@@ -4,8 +4,6 @@ import HelloWorld from './hello'
 import CourseManager from './containers/CourseManager'
 import '../node_modules/font-awesome/css/font-awesome.min.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
-import Message from './components/Message';
-import Stateless from "./components/Stateless";
 import ModuleList from "./containers/ModuleList";
 import App from "./examples/App"
 
