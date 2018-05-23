@@ -24,18 +24,6 @@ export default class CourseManager extends React.Component {
                 <Route path="/course/:courseId/module/:moduleId"
                        component={ModuleEditor}>
                 </Route>
-                {/*<Route path={"/examples"}>*/}
-                    {/*<div>*/}
-                        {/*<LessonTabs/>*/}
-                        {/*<div className='card-deck'>*/}
-                            {/*<CourseCard/>*/}
-                            {/*<CourseCard/>*/}
-                            {/*<CourseCard/>*/}
-                            {/*<CourseCard/>*/}
-                            {/*<CourseCard/>*/}
-                        {/*</div>*/}
-                    {/*</div>*/}
-                {/*</Route>*/}
             </div>
             </Router>
         )

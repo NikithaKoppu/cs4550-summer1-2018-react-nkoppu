@@ -34,13 +34,14 @@ export default class ModuleList
         this.setState({modules: modules})
     }
     findAllModulesForCourse(courseId) {
+        console.log(courseId)
         this.moduleService
             .findAllModulesForCourse(courseId)
             .then((modules) => {this.setModules(modules)});
     }
     findAllModules() {
         this.moduleService
-            .findAllModules()
+            .findAllModules
             .then((modules) => {
                 this.setState({modules: modules});
                 console.log(modules);
@@ -63,9 +64,9 @@ export default class ModuleList
     createModule(event) {
         console.log(this.state.module);
         this.moduleService
-            .createModule(this.props.courseId, this.state.module)
+            .createModule(this.state.courseId, this.state.module)
             .then(() => {
-                this.findAllModulesForCourse(this.props.courseId);
+                this.findAllModulesForCourse(this.state.courseId);
             })
     }
 
@@ -75,7 +76,7 @@ export default class ModuleList
 
     renderListOfModules() {
         let modules = this.state.modules
-            .map(function(module){
+            .map((module) => {
                 return <ModuleListItem module={module} key={module.id}
                                        delete={this.deleteModule}/>
             });
@@ -83,27 +84,26 @@ export default class ModuleList
     }
 
     render() { return (
-        <div className="row">
-            <div className="col-4">
-            <br/>
-            <h3>ModuleList for course: {this.state.courseId}</h3>
-            <input className="form-control"
-                   onChange={this.titleChanged}
-                   placeholder="title"/>
-            <button
-                onClick={this.createModule}
-                className="btn btn-primary btn-block">
-                <i className="fa fa-plus"></i>
-            </button>
+            <div className="row">
+                <div className="col">
+                <br/>
+                <h3>ModuleList for course: {this.state.courseId}</h3>
+                    <div className="row">
+                <input className="form-control"
+                       onChange={this.titleChanged}
+                       placeholder="title"/>
+                <button
+                    onClick={this.createModule}
+                    className="btn btn-primary btn-block">
+                    <i className="fa fa-plus"></i>
+                </button>
+                    </div>
 
-            <ul className="list-group">
-                {this.renderListOfModules()}
-                </ul>
-            </div>
+                <ul className="list-group">
+                    {this.renderListOfModules()}
+                    </ul>
+                </div>
 
-            <div className="col-8">
-                {this.renderListOfModules()}
             </div>
-        </div>
     );}
 }

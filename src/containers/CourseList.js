@@ -10,6 +10,8 @@ class CourseList extends React.Component {
         this.deleteCourse = this.deleteCourse.bind(this);
         this.titleChanged = this.titleChanged.bind(this);
         this.createCourse = this.createCourse.bind(this);
+        this.findAllCourses = this.findAllCourses.bind(this);
+
     }
     componentDidMount() {
         this.findAllCourses()
