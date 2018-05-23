@@ -21,7 +21,6 @@ export default class ModuleList
     }
 
     deleteModule(moduleId) {
-        console.log(moduleId);
         this.moduleService
             .deleteModule(moduleId)
             .then(() => {
@@ -34,7 +33,6 @@ export default class ModuleList
         this.setState({modules: modules})
     }
     findAllModulesForCourse(courseId) {
-        console.log(courseId)
         this.moduleService
             .findAllModulesForCourse(courseId)
             .then((modules) => {this.setModules(modules)});
@@ -62,7 +60,6 @@ export default class ModuleList
     }
 
     createModule(event) {
-        console.log(this.state.module);
         this.moduleService
             .createModule(this.state.courseId, this.state.module)
             .then(() => {
@@ -78,32 +75,32 @@ export default class ModuleList
         let modules = this.state.modules
             .map((module) => {
                 return <ModuleListItem module={module} key={module.id}
+                                       courseId={this.state.courseId}
                                        delete={this.deleteModule}/>
             });
         return modules;
     }
 
     render() { return (
-            <div className="row">
-                <div className="col">
-                <br/>
-                <h3>ModuleList for course: {this.state.courseId}</h3>
-                    <div className="row">
-                <input className="form-control"
-                       onChange={this.titleChanged}
-                       placeholder="title"/>
-                <button
-                    onClick={this.createModule}
-                    className="btn btn-primary btn-block">
-                    <i className="fa fa-plus"></i>
-                </button>
-                    </div>
+                <div className="row">
+                    <br/>
+                        <div className="row">
+                    <input className="form-control"
+                           onChange={this.titleChanged}
+                           placeholder="New Module Title"/>
+                    <button
+                        onClick={this.createModule}
+                        className="btn btn-primary btn-block">
+                        <i className="fa fa-plus"></i>
+                    </button>
+                        </div>
 
-                <ul className="list-group">
-                    {this.renderListOfModules()}
-                    </ul>
+                        <nav>
+                    <ul className="list-group">
+                        {this.renderListOfModules()}
+                        </ul>
+                        </nav>
+
                 </div>
-
-            </div>
     );}
 }

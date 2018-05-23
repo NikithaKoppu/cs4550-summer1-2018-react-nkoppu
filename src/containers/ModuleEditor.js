@@ -43,9 +43,8 @@ export default class ModuleEditor extends React.Component {
     render() {
         return (
             <div>
-                <h1> {this.state.courseId}!</h1>
                 <div className="col-8">
-                    <LessonTabs moduleId={this.state.moduleId}/>
+                    <LessonTabs courseId={this.state.courseId} moduleId={this.state.moduleId}/>
                 </div>
             </div>
         )}}

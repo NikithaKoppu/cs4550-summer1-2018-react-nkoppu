@@ -7,16 +7,25 @@ class CourseRow extends React.Component {
     }
     render() {
         return (
-            <tr><td>
+            <div className="row">
+                <div className="col-md-3">
                 <Link to={`/course/${this.props.course.id}`}>
                      {this.props.course.title}
-                </Link></td>
-                <td><button className="btn btn-danger"
+                </Link>
+                </div>
+                <div className="col-md-2">
+                    <p>me</p>
+                </div>
+                <div className="col-md-3">
+                    <p>{this.props.course.modified}</p>
+                </div>
+                <div className="col-md-3">
+                    <button className="btn btn-danger"
                     onClick={() =>
                     {this.props.delete(this.props.course.id)}}>
                     Delete
-                </button></td>
-            </tr>
+                </button></div>
+            </div>
         )
     }
 }

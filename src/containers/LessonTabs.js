@@ -25,7 +25,7 @@ export default class LessonTabs
         this.lessonService
             .createLesson(this.state.courseId, this.state.moduleId,this.state.lesson)
             .then(() => {
-                this.findAllLessonsForModule(this.state.moduleId);
+                this.findAllLessonsForModule(this.state.courseId, this.state.moduleId);
             })
     }
 
@@ -38,7 +38,7 @@ export default class LessonTabs
         this.lessonService
             .deleteLesson(lessonId)
             .then(() => {
-                this.findAllLessonsForModule(this.props.moduleId)
+                this.findAllLessonsForModule(this.props.courseId, this.props.moduleId)
             });
     }
 
@@ -46,9 +46,9 @@ export default class LessonTabs
         this.setState({lessons: lessons})
     }
 
-    findAllLessonsForModule(moduleId) {
+    findAllLessonsForModule(courseId, moduleId) {
         this.lessonService
-            .findAllLessonsForModule(this.state.courseId, moduleId)
+            .findAllLessonsForModule(courseId, moduleId)
             .then((lessons) => {this.setLessons(lessons)});
     }
 
@@ -62,13 +62,22 @@ export default class LessonTabs
     }
 
     componentDidMount() {
-        this.setCourseId(this.props.courseId);
+        this.setCourseId(
+            this.props.courseId);
+
+        this.setModuleId(
+            this.props.moduleId);
+        console.log(this.props.courseId);
     }
 
     componentWillReceiveProps(newProps){
-        this.setCourseId(newProps.courseId);
-        this.setModuleId(newProps.moduleId);
-        this.findAllLessonsForModule(newProps.moduleId)
+        this.setCourseId(
+            newProps.courseId);
+
+        this.setModuleId(
+            newProps.moduleId);
+        this.findAllLessonsForModule(newProps.courseId, newProps.moduleId);
+
     }
 
     setCourseId(courseId) {
@@ -83,20 +92,23 @@ export default class LessonTabs
         let lessons = this.state.lessons
             .map((lesson) => {
                 return <li className="nav-item">
-                    <a className="nav-link" href="#">{this.state.lesson.title}</a>
+                    <a className="nav-link">{lesson.title}</a>
                     <span className='float-right'>
                     <i className="fa fa-trash" onClick={() => {
-                        this.deleteLesson(this.props.lesson.id)
+                        this.deleteLesson(lesson.id)
                     }}/>
                     <i className="fa fa-pencil"/>
                 </span>
                 </li>
             });
+        console.log(lessons);
         return lessons;
     }
 
     render() { return(
+        <div className="col">
         <ul className="nav nav-tabs">
             {this.renderListOfLessons()}
         </ul>
+        </div>
     );}}
