@@ -34,7 +34,6 @@ export default class LessonTabs
     }
 
     deleteLesson(lessonId) {
-        console.log(lessonId);
         this.lessonService
             .deleteLesson(lessonId)
             .then(() => {
@@ -101,7 +100,6 @@ export default class LessonTabs
                 </span>
                 </li>
             });
-        console.log(lessons);
         return lessons;
     }
 

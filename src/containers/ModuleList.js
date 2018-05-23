@@ -1,7 +1,6 @@
 import React from 'react'
 import ModuleListItem from '../components/ModuleListItem';
 import ModuleService from '../services/ModuleService';
-import ModuleEditor from './ModuleEditor';
 
 export default class ModuleList
     extends React.Component {
@@ -83,6 +82,7 @@ export default class ModuleList
 
     render() { return (
                 <div className="row">
+                    <div className="container">
                     <br/>
                         <div className="row">
                     <input className="form-control"
@@ -94,12 +94,12 @@ export default class ModuleList
                         <i className="fa fa-plus"></i>
                     </button>
                         </div>
-
-                        <nav>
+                        <nav id="sidebar">
                     <ul className="list-group">
                         {this.renderListOfModules()}
                         </ul>
                         </nav>
+                    </div>
 
                 </div>
     );}

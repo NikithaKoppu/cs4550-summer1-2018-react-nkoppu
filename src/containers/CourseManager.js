@@ -3,7 +3,6 @@ import CourseEditor from './CourseEditor'
 import CourseList from "./CourseList";
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
 import ModuleEditor from "./ModuleEditor";
-import LessonTabs from "./LessonTabs";
 
 
 export default class CourseManager extends React.Component {

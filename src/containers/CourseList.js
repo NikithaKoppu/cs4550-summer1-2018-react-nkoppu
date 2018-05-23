@@ -71,9 +71,9 @@ class CourseList extends React.Component {
                     </nav>
                     </div>
                     <div className="row">
-                        <div className="col-md-3">Title</div>
-                        <div className="col-md-2">Owned By</div>
-                        <div className="col-md-3">Last Modified By Me</div>
+                        <div className="col-3 col-md-3">Title</div>
+                        <div className="col-2 col-md-2">Owned By</div>
+                        <div className="col-3 col-md-3">Last Modified By Me</div>
                     </div>
                     {this.renderCourseRows()}
                 </table>
