@@ -5,6 +5,12 @@ class CourseRow extends React.Component {
     constructor(props) {
         super(props);
     }
+
+    confirmDelete(courseId) {
+        if (window.confirm("Do you want to delete this?")) {
+            {this.props.delete(courseId)}
+        }
+    }
     render() {
         return (
             <div className="row">
@@ -22,7 +28,7 @@ class CourseRow extends React.Component {
                 <div className="col-3 col-md-3">
                     <button className="btn btn-danger"
                     onClick={() =>
-                    {this.props.delete(this.props.course.id)}}>
+                    {this.confirmDelete(this.props.course.id)}}>
                     Delete
                 </button></div>
             </div>

@@ -10,7 +10,7 @@ export default class LessonTabs
 
         this.lessonService = LessonService.instance;
         this.state = {courseId: '', moduleId: '',
-            lesson: {title: ''},
+            lesson: {title: 'New Lesson Title'},
             lessons: []};
         this.setCourseId = this.setCourseId.bind(this);
         this.setModuleId = this.setModuleId.bind(this);
@@ -39,6 +39,12 @@ export default class LessonTabs
             .then(() => {
                 this.findAllLessonsForModule(this.props.courseId, this.props.moduleId)
             });
+    }
+
+    confirmDelete(lessonId) {
+        if (window.confirm("Do you want to delete this?")) {
+            {this.deleteLesson(lessonId)}
+        }
     }
 
     setLessons(lessons) {
@@ -94,19 +100,33 @@ export default class LessonTabs
                     <a className="nav-link">{lesson.title}</a>
                     <span className='float-right'>
                     <i className="fa fa-trash" onClick={() => {
-                        this.deleteLesson(lesson.id)
+                        this.confirmDelete(lesson.id);
                     }}/>
                     <i className="fa fa-pencil"/>
                 </span>
                 </li>
             });
+
         return lessons;
     }
 
     render() { return(
-        <div className="col">
+        <div className="col -align-right">
+            <br/>
+            <div className="row">
+                <input className="form-control"
+                       onChange={this.titleChanged}
+                       placeholder="New Lesson Title"/>
+                <button
+                    onClick={this.createLesson}
+                    className="btn btn-primary btn-block">
+                    <i className="fa fa-plus"></i>
+                </button>
+            </div>
+            <div id="lessonDiv">
         <ul className="nav nav-tabs">
             {this.renderListOfLessons()}
         </ul>
+            </div>
         </div>
     );}}

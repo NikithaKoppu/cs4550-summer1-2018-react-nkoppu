@@ -8,7 +8,7 @@ export default class ModuleList
         super(props);
         this.state = {
             courseId: '',
-            module: {title: ''},
+            module: {title: 'New Module Title'},
             modules: []
         };
 
@@ -81,8 +81,7 @@ export default class ModuleList
     }
 
     render() { return (
-                <div className="row">
-                    <div className="container">
+                    <div className="container align-items-center justify-content-center">
                     <br/>
                         <div className="row">
                     <input className="form-control"
@@ -94,13 +93,10 @@ export default class ModuleList
                         <i className="fa fa-plus"></i>
                     </button>
                         </div>
-                        <nav id="sidebar">
                     <ul className="list-group">
                         {this.renderListOfModules()}
                         </ul>
-                        </nav>
                     </div>
 
-                </div>
     );}
 }

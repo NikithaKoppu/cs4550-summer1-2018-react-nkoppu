@@ -6,7 +6,7 @@ class CourseList extends React.Component {
     constructor() {
         super();
         this.courseService = CourseService.instance;
-        this.state = {courses: []};
+        this.state = {course: {title: 'New Course Title' },courses: []};
         this.deleteCourse = this.deleteCourse.bind(this);
         this.titleChanged = this.titleChanged.bind(this);
         this.createCourse = this.createCourse.bind(this);
@@ -71,9 +71,9 @@ class CourseList extends React.Component {
                     </nav>
                     </div>
                     <div className="row">
-                        <div className="col-3 col-md-3">Title</div>
-                        <div className="col-2 col-md-2">Owned By</div>
-                        <div className="col-3 col-md-3">Last Modified By Me</div>
+                        <div className="col-3 col-md-3"><b>Title</b></div>
+                        <div className="col-2 col-md-2"><b>Owned By</b></div>
+                        <div className="col-3 col-md-3"><b>Last Modified</b></div>
                     </div>
                     {this.renderCourseRows()}
                 </table>

@@ -6,6 +6,11 @@ export default class ModuleListItem
     constructor(props) {
         super(props);
     }
+    confirmDelete(moduleId) {
+        if (window.confirm("Do you want to delete this?")) {
+            this.props.delete(moduleId)
+        }
+    }
     render() {
         return (
             <li className="list-group-item">
@@ -15,7 +20,7 @@ export default class ModuleListItem
 
                 <span className='float-right'>
                     <i className="fa fa-trash" onClick={() => {
-                        this.props.delete(this.props.module.id)
+                        this.confirmDelete(this.props.module.id);
                     }}/>
                     <i className="fa fa-pencil"/>
                 </span>

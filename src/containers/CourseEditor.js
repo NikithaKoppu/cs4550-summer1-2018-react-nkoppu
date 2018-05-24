@@ -1,13 +1,11 @@
 import React from 'react'
 import ModuleList from './ModuleList'
-import LessonTabs from './LessonTabs'
 
 export default class CourseEditor extends React.Component {
     constructor(props) {
         super(props);
         this.state = {courseId: ''};
         this.selectCourse = this.selectCourse.bind(this);
-        const isModule = null;
     }
 
     componentDidMount() {
@@ -21,11 +19,9 @@ export default class CourseEditor extends React.Component {
     render() {
         return (
             <div>
-            <div className="row">
                 <div className="col-4">
                     <ModuleList courseId={this.state.courseId}/>
                 </div>
-            </div>
             </div>
         );
     }
