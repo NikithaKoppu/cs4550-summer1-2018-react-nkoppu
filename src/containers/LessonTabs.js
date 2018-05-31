@@ -1,6 +1,7 @@
 import React from 'react'
 import LessonService from '../services/LessonService'
-
+import {Link} from 'react-router-dom'
+import LessonTabItem from "../components/LessonTabItem";
 
 
 export default class LessonTabs
@@ -96,15 +97,10 @@ export default class LessonTabs
     renderListOfLessons() {
         let lessons = this.state.lessons
             .map((lesson) => {
-                return <li className="nav-item">
-                    <a className="nav-link">{lesson.title}</a>
-                    <span className='float-right'>
-                    <i className="fa fa-trash" onClick={() => {
-                        this.confirmDelete(lesson.id);
-                    }}/>
-                    <i className="fa fa-pencil"/>
-                </span>
-                </li>
+                return <LessonTabItem lesson={lesson} key={lesson.id}
+                                      courseId = {this.state.courseId}
+                                       moduleId={this.state.moduleId}
+                                       delete={this.deleteLesson}/>
             });
 
         return lessons;

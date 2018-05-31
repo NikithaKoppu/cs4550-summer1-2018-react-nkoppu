@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {createStore} from 'redux'
+import {Provider} from 'react-redux'
 import CourseManager from './containers/CourseManager'
 import '../node_modules/font-awesome/css/font-awesome.min.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
+import widgetReducer from './reducers/widgetReducer'
 
+let store = createStore(widgetReducer)
 
 ReactDOM.render(
-    <div>
+    <Provider store={store}>
         <CourseManager/>
-    </div>,
+    </Provider>,
 document.getElementById('root')
 );
