@@ -1,3 +1,7 @@
+This project has supplementary sections in the cs4550-summer1-2018-redux-nkoppu repo
+and cs4550-spring-boot repo.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
