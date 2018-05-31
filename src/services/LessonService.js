@@ -1,7 +1,7 @@
 const LESSON_API_URL =
-    'http://localhost:8080/api/course/CID/module/MID/lesson';
+    'https://dashboard.heroku.com/apps/cs4550-summer1-koppu-nikitha/api/course/CID/module/MID/lesson';
 const SINGLE_LESSON_API_URL =
-    'http://localhost:8080/api/lesson';
+    'https://dashboard.heroku.com/apps/cs4550-summer1-koppu-nikitha/api/lesson';
 
 let _singleton = Symbol();
 export default class LessonService {

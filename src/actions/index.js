@@ -33,7 +33,7 @@ export const listChanged = (dispatch, widgetId, newType) => (
         listType: newType})
 )
 export const findAllWidgets = dispatch => {
-    fetch('http://localhost:8080/api/widget')
+    fetch('https://dashboard.heroku.com/apps/cs4550-summer1-koppu-nikitha/api/widget')
         .then(response => response.json())
         .then(widgets => dispatch({
             type: constants.FIND_ALL_WIDGETS,
@@ -41,7 +41,7 @@ export const findAllWidgets = dispatch => {
 }
 
 export const findWidgetsByLesson = (dispatch, lessonId) => {
-    fetch('http://localhost:8080/api/lesson/' + lessonId +"/widget")
+    fetch('https://dashboard.heroku.com/apps/cs4550-summer1-koppu-nikitha/api/lesson/' + lessonId +"/widget")
         .then(response => response.json())
         .then(widgets => dispatch({
             type: constants.FIND_WIDGET_BY_LESSON,

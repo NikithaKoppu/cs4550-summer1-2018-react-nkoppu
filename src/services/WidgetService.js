@@ -1,7 +1,7 @@
 const WIDGET_API_URL =
-    'http://localhost:8080/api/lesson/LID/widget';
+    'https://dashboard.heroku.com/apps/cs4550-summer1-koppu-nikitha/api/lesson/LID/widget';
 const ALL_WIDGETS_API_URL =
-    'http://localhost:8080/api/widget';
+    'https://dashboard.heroku.com/apps/cs4550-summer1-koppu-nikitha/api/widget';
 
 let _singleton = Symbol();
 export default class WidgetService {

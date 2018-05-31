@@ -1,7 +1,7 @@
 const MODULE_API_URL =
-    'http://localhost:8080/api/course/CID/module';
+    'https://dashboard.heroku.com/apps/cs4550-summer1-koppu-nikitha/api/course/CID/module';
 const SINGLE_MODULE_API_URL =
-    'http://localhost:8080/api/module';
+    'https://dashboard.heroku.com/apps/cs4550-summer1-koppu-nikitha/api/module';
 
 let _singleton = Symbol();
 export default class ModuleService {

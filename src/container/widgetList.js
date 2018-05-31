@@ -45,8 +45,6 @@ const dispatcherToPropsMapper
     save: () => actions.save(dispatch),
     preview: () => actions.preview(dispatch)
 })
-const App = connect(
+export const App = connect(
     stateToPropertiesMapper,
     dispatcherToPropsMapper)(WidgetList);
-
-export default App;
